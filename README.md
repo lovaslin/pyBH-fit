@@ -25,8 +25,8 @@ pip install -r requirement.txt
 The comand line comes with a number of arguments that are used to tune some parameters.  
 The available arguments are :  
   - Nb : the number of bins in the scanned distribution (set to 20 by default)
-  - loc_path : Path to the directory where the final plots should be stored
-  - tem_path : Path to the directory where the teporary files generated when scanning the PEs are stored
+  - loc_path : Path to the directory where the final plots should be stored (default to 'results')
+  - tem_path : Path to the directory where the teporary files generated when scanning the PEs are stored (default to 'temp')
   - width : Width of the window used by BumpHunter to scan the distribution (default to 1)
   - bkg : Define the shapes of the background in the scanne distribution, can be either 'exp' or 'lin' (default to 'exp')
   - Nbkg : Define the number of background event generated in the scanned histograms (default to 100k)
