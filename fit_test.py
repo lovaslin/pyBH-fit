@@ -42,7 +42,7 @@ opts, args = getopt.getopt(argv,"",arg_list)
 
 # Initialize argument values (default)
 loc_path = 'results/'
-tem_path = 'temp/'
+tem_path = '/AtlasDisk/user/vaslin/'
 Nb = 20
 width = 1
 bkg_type = 'exp'
@@ -268,7 +268,8 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     plt.plot(xcont, BHstat(xcont, *param), lw=2, label=f'fit (chi2/ndf={chi2_s:.3g})')
     plt.vlines(bh.t_ar[0], 0, Hbh.max(), ls='--', colors='r', lw=2, label='data')
     plt.legend(fontsize='xx-large')
-    plt.ylabel('BHstat(p)', size='xx-large')
+    plt.xlabel('Test statistic', size='xx-large')
+    plt.ylabel('Number of pseudo-experiments', size='xx-large')
     plt.yscale('log')
     plt.xticks(fontsize='xx-large')
     plt.yticks(fontsize='xx-large')
@@ -333,7 +334,8 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     plt.hist(bbh_big[:-1], bins=bbh_big, weights=Hbh_big, histtype='step', lw=2, label='pseudo-data (5M)')
     plt.plot(xcont, BHstat(xcont, *param), lw=2, label='fit (scaled)')
     plt.legend(fontsize='xx-large')
-    plt.ylabel('BHstat(p) scaled', size='xx-large')
+    plt.xlabel('Test statistic', size='xx-large')
+    plt.ylabel('Number of pseudo-experiments', size='xx-large')
     plt.xticks(fontsize='xx-large')
     plt.yticks(fontsize='xx-large')
     plt.savefig(lpath+'big_lin.pdf', bbox_inches='tight')
@@ -345,7 +347,8 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     plt.plot(xcont, BHstat(xcont, *param), lw=2, label='fit (scaled)')
     plt.yscale('log')
     plt.legend(fontsize='xx-large')
-    plt.ylabel('BHstat(p) scaled', size='xx-large')
+    plt.xlabel('Test statistic', size='xx-large')
+    plt.ylabel('Number of pseudo-experiments', size='xx-large')
     plt.xticks(fontsize='xx-large')
     plt.yticks(fontsize='xx-large')
     plt.savefig(lpath+'big_log.pdf', bbox_inches='tight')
@@ -357,8 +360,8 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     plt.hist(bbh_big[:-1], bins=bbh_big, weights=Hbh_big, density=True, histtype='step', lw=2, label='pseudo-data (5M)')
     plt.hist(t_ar, bins=bbh_big, density=True, histtype='step', lw=2, label='pseudo-data (50k)')
     plt.legend(fontsize='xx-large')
-    plt.xlabel('t', size='xx-large')
-    plt.ylabel('PE count (normalized)', size='xx-large')
+    plt.xlabel('Test statistic', size='xx-large')
+    plt.ylabel('Number of pseudo-experiments (normalized)', size='xx-large')
     plt.xticks(fontsize='xx-large')
     plt.yticks(fontsize='xx-large')
     
@@ -367,8 +370,8 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     plt.hist(t_ar, bins=bbh_big, density=True, histtype='step', lw=2, label='pseudo-data (50k)')
     plt.yscale('log')
     plt.legend(fontsize='xx-large')
-    plt.xlabel('t', size='xx-large')
-    plt.ylabel('PE count (normalized)', size='xx-large')
+    plt.xlabel('Test statistic', size='xx-large')
+    plt.ylabel('Number of pseudo-experiments (normalized)', size='xx-large')
     plt.xticks(fontsize='xx-large')
     plt.yticks(fontsize='xx-large')
     plt.savefig(lpath+'BHstat_all.pdf', bbox_inches='tight')
