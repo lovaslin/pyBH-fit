@@ -376,7 +376,7 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     gpval_fit = 1 - gpval_fit
     
     # Compute the global p-value bias for various tdata
-    tdata = np.arange(4, 16, 1)
+    tdata = np.arange(4, 17, 1)
     bias = np.empty((tdata.size, 4))
     Ntot = big_ar[1:,1].size
     for i, t in enumerate(tdata):
