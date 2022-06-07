@@ -37,3 +37,6 @@ The available arguments are :
  ```
  
  Optionnally the script `run_all.sh` can be used to run automatically all the tests to reproduce the results of the paper.
+ 
+ **Warning** : By default, running a test uses 10 CPU cores to parallelize the scans.  
+ Make to that your machine can support it (or modify the number of workers at the line 291 of the code.)
