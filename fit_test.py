@@ -15,6 +15,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib import gridspec as grd
 import pyBumpHunter as BH
 
 from scipy.special import erfc, erfcinv
@@ -423,12 +424,20 @@ def fit_w(data, bkg, bins, w, lpath, tpath):
     plt.savefig(lpath+'pval.pdf', bbox_inches='tight')
     plt.close(F)
     
-    F = plt.figure(figsize=(12,8))
+    F = plt.figure(figsize=(12,10))
+    gs = grd.GridSpec(2, 1, height_ratios=[4, 1])
+    pl1 = plt.subplot(gs[0])
     plt.plot(tdata, bias[:,2], 'x:', lw=2, label='direct')
     plt.plot(tdata, bias[:,3], 'o-', lw=2, label='fit')
     plt.legend(fontsize=24)
-    plt.xlabel('tdata', size=24)
     plt.ylabel('Global significance', size=24)
+    plt.xticks(fontsize=24)
+    plt.yticks(fontsize=24)
+    plt.tight_layout()
+    pl2 = plt.subplot(gs[1])
+    plt.plot(tdata, bias[:,2] / bias[:,3], 'o-', lw=2)
+    plt.xlabel('tdata', size=24)
+    plt.ylabel('R', size=24)
     plt.xticks(fontsize=24)
     plt.yticks(fontsize=24)
     plt.savefig(lpath+'sigma.pdf', bbox_inches='tight')
